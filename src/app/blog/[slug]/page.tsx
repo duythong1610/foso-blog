@@ -35,24 +35,24 @@ export default function BlogDetail() {
   }
 
   useEffect(() => {
-    if (!blog.content) return;
+    if (blog.content) {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = blog.content;
+      const elements = Array.from(tempDiv.querySelectorAll("h2, h3"));
 
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = blog.content;
-    const elements = Array.from(tempDiv.querySelectorAll("h2, h3"));
+      const newHeadings = elements.map((el, index) => {
+        const id = `heading-${index}`;
+        el.id = id; // Thêm ID vào thẻ
+        return {
+          id,
+          text: el.textContent || "",
+          level: el.tagName === "H2" ? 1 : 2,
+        };
+      });
 
-    const newHeadings = elements.map((el, index) => {
-      const id = `heading-${index}`;
-      el.id = id; // Thêm ID vào thẻ
-      return {
-        id,
-        text: el.textContent || "",
-        level: el.tagName === "H2" ? 1 : 2,
-      };
-    });
-
-    setHeadings(newHeadings);
-    setProcessedContent(tempDiv.innerHTML); // Gán nội dung đã xử lý lại
+      setHeadings(newHeadings);
+      setProcessedContent(tempDiv.innerHTML); // Gán nội dung đã xử lý lại
+    }
   }, [blog.content]);
 
   const items: CollapseProps["items"] = [

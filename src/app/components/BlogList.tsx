@@ -1,5 +1,4 @@
 import { recentPosts } from "@/data/blogPost";
-import { BlogPost } from "../types/blogPost";
 import BlogCard from "./BlogCard";
 
 export default function BlogList() {

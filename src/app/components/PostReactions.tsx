@@ -19,7 +19,7 @@ const reactions = [
 ];
 
 const PostReactions = () => {
-  const [counts, setCounts] = useState<ReactionCounts>({
+  const [counts] = useState<ReactionCounts>({
     1: 1,
     2: 2,
     3: 0,

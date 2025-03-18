@@ -1,13 +1,11 @@
 "use client";
-import Link from "next/link";
-import { Menu, Dropdown, Button, MenuProps } from "antd";
-import { DownOutlined, GlobalOutlined } from "@ant-design/icons";
-import { useState } from "react";
-import Image from "next/image";
-import logo from "@/assets/images/logo.png";
-import vietnamFlag from "@/assets/icons/vietnam-flag.svg";
-import registerIcon from "@/assets/icons/register.svg";
 import caretDownIcon from "@/assets/icons/CaretDown.svg";
+import registerIcon from "@/assets/icons/register.svg";
+import vietnamFlag from "@/assets/icons/vietnam-flag.svg";
+import logo from "@/assets/images/logo.png";
+import { Dropdown, MenuProps } from "antd";
+import Image from "next/image";
+import Link from "next/link";
 
 const solutionsMenu: MenuProps["items"] = [
   {
