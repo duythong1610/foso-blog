@@ -27,15 +27,8 @@ export default function BlogDetail() {
   // Tìm bài viết theo slug
   const blog = recentPosts.find((post) => post.slug === slug);
 
-  // Nếu không tìm thấy, hiển thị thông báo
-  if (!blog) {
-    return (
-      <div className="text-center text-red-500">Bài viết không tồn tại.</div>
-    );
-  }
-
   useEffect(() => {
-    if (blog.content) {
+    if (blog?.content) {
       const tempDiv = document.createElement("div");
       tempDiv.innerHTML = blog.content;
       const elements = Array.from(tempDiv.querySelectorAll("h2, h3"));
@@ -53,7 +46,14 @@ export default function BlogDetail() {
       setHeadings(newHeadings);
       setProcessedContent(tempDiv.innerHTML); // Gán nội dung đã xử lý lại
     }
-  }, [blog.content]);
+  }, [blog?.content]);
+
+  // Nếu không tìm thấy, hiển thị thông báo
+  if (!blog) {
+    return (
+      <div className="text-center text-red-500">Bài viết không tồn tại.</div>
+    );
+  }
 
   const items: CollapseProps["items"] = [
     {
