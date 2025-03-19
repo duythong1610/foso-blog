@@ -9,7 +9,7 @@ export default function BlogPage() {
         <BlogHero />
       </div>
 
-      <div className="max-w-[1440px] m-auto">
+      <div className="max-w-[1440px] m-auto pb-[200px]">
         <div className="flex gap-8">
           <BlogList />
           <Sidebar />

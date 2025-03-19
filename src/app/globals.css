@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.custom-gradient {
+  background: radial-gradient(
+    circle,
+    #54abb1 0%,
+    #54abb1 40.91%,
+    #85eeb3 71%,
+    #54abb1 100%
+  );
+}

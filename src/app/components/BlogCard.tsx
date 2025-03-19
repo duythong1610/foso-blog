@@ -10,14 +10,17 @@ interface PropTypes {
 export default function BlogCard({ post }: PropTypes) {
   return (
     <Link href={`/blog/${post.slug}`}>
-      <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition">
-        <Image
-          src={post.thumbnail}
-          alt={""}
-          width={505}
-          height={475}
-          className="object-contain"
-        />
+      <div className="bg-white rounded-[24px]">
+        <div className="group relative overflow-hidden rounded-[24px]">
+          <Image
+            src={post.thumbnail}
+            alt={""}
+            width={505}
+            height={475}
+            className="object-cover h-[475px] transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
+
         <div className="flex flex-col gap-4 mt-6">
           <div className="bg-[#E2F0FE] rounded-[8px] py-1 px-2 w-fit text-[#0F4F9E]">
             {post.category.name}

@@ -9,6 +9,9 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import caretDownIcon from "@/assets/icons/CaretDown.svg";
+import PromoBanner from "@/app/components/PromoBanner";
+import FloatButtonGroup from "@/app/components/FloatButtonGroup";
+import RelatedPosts from "@/app/components/RelatedPost";
 
 export default function BlogDetail() {
   const params = useParams();
@@ -66,29 +69,36 @@ export default function BlogDetail() {
         </div>
       ),
       children: (
-        <ul className="space-y-2">
-          {headings.map(({ id, text, level }) => (
-            <li key={id} style={{ paddingLeft: level === 2 ? 20 : 0 }}>
-              <a
-                href={`#${id}`}
-                className="hover:underline hover:!text-[#15AA7A] text-lg font-medium"
-                style={{ color: activeId == id ? "#15AA7A" : "#33404A" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScroll(id);
-                }}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="space-y-2 mb-6">
+            {headings.map(({ id, text, level }) => (
+              <li key={id} style={{ paddingLeft: level === 2 ? 20 : 0 }}>
+                <a
+                  href={`#${id}`}
+                  className="hover:underline hover:!text-[#15AA7A] text-lg font-medium"
+                  style={{ color: activeId == id ? "#15AA7A" : "#33404A" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleScroll(id);
+                  }}
+                >
+                  {text}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-8">
+            <PromoBanner type="tag" />
+            <PromoBanner />
+          </div>
+        </>
       ),
     },
   ];
 
   return (
     <div className="max-w-[1440px] m-auto">
+      <FloatButtonGroup />
       <div className="flex items-center justify-between text-center mt-[32px] mb-[48px]">
         <Breadcrumb
           className="text-center"
@@ -182,6 +192,9 @@ export default function BlogDetail() {
             items={items}
           ></Collapse>
         </div>
+      </div>
+      <div>
+        <RelatedPosts post={recentPosts} />
       </div>
     </div>
   );
