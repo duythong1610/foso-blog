@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 export default function Sidebar() {
   return (
-    <div className="w-[366px] sticky top-[88px] max-h-[90vh] overflow-y-auto">
+    <div className="w-[366px] sticky top-[88px] h-fit min-h-screen">
       <SearchBar />
       <CategoryList />
       <div className="flex flex-col gap-8">

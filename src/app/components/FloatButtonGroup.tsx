@@ -6,8 +6,8 @@ import linkedinIcon from "@/assets/images/linkedin.png";
 import Image from "next/image";
 const FloatButtonGroup = () => {
   return (
-    <div className="fixed left-[90px] top-[250px]">
-      <div className="flex flex-col gap-2">
+    <div className="fixed left-[90px] top-[250px] bg-white rounded-2xl px-1 py-3">
+      <div className="flex flex-col gap-2 items-center">
         <label htmlFor="" className="text-base font-extrabold text-[#33404A]">
           Chia sẻ
         </label>

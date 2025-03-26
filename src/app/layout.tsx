@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import Header from "./components/Header";
 import "./globals.css";
+import ReactQueryProvider from "./providers/ReactQueryProvider";
 
-const raleway = Raleway({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   icons: {
@@ -21,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${raleway.className}`}>
-        <Header />
-        <main className="pt-[100px] px-10">{children}</main>
+        <ReactQueryProvider>
+          <Header />
+          <main className="pt-[100px] px-10">{children}</main>
+        </ReactQueryProvider>
       </body>
     </html>
   );

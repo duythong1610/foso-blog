@@ -5,7 +5,7 @@ export default function SearchBar() {
   return (
     <div className="p-4 pb-0">
       <h2 className="text-lg font-bold mb-6">Tìm kiếm</h2>
-      <div className="px-2 py-3 bg-white rounded-lg shadow-2xl">
+      <div className="px-2 py-3 bg-white rounded-lg">
         <div className="flex items-center justify-between gap-10">
           <input
             type="text"

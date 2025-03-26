@@ -6,6 +6,7 @@ import logo from "@/assets/images/logo.png";
 import { Dropdown, MenuProps } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const solutionsMenu: MenuProps["items"] = [
   {
@@ -53,6 +54,7 @@ const languageMenu: MenuProps["items"] = [
 ];
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <header className="bg-white py-4  fixed left-0 right-0 top-0 z-50">
       <div className="max-w-7xl m-auto flex justify-between items-center px-4">
@@ -90,7 +92,9 @@ const Header = () => {
                 <div className="flex items-center gap-2">
                   <Link
                     href="/blog"
-                    className="text-gray-700 hover:text-green-600"
+                    className={`text-gray-700 hover:text-green-600 link ${
+                      pathname === "/blog" ? "text-green-600" : ""
+                    }`}
                   >
                     Tài nguyên
                   </Link>
